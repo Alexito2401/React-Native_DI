@@ -34,48 +34,67 @@ const App: () => React$Node = () => {
     <>
       <StatusBar barStyle="light-content" />
 
+
+
       <Header
         leftComponent={{ icon: 'home', color: '#fff' }}
         centerComponent={{ text: 'Exercici de Alex B.', style: { color: '#fff' } }}
       />
 
-        <Image
-          source={{ uri: 'https://www.wallpaperup.com/uploads/wallpapers/2013/08/19/135949/00297a2528269ffcd01955cb6acb0a12.jpg' }}
-          style={{ width: '100%', height: '30%' }}
-          PlaceholderContent={<ActivityIndicator />}
-        />
 
-        <Avatar
-          rounded
-          source={{
-            uri:
-              'https://image.freepik.com/vector-gratis/perfil-avatar-hombre-icono-redondo_24640-14044.jpg',
-          }}
-        />
+      <Image
+        source={{ uri: 'https://www.wallpaperup.com/uploads/wallpapers/2013/08/19/135949/00297a2528269ffcd01955cb6acb0a12.jpg' }}
+        style={{ width: '100%', height: '30%' }}
+        PlaceholderContent={<ActivityIndicator />}
+      />
 
-        <Input
-          placeholder='Login'
-          leftIcon={{ type: 'font-awesome', name: 'user' }}
-        />
+      <Avatar
+        rounded
+        source={{
+          uri:
+            'https://image.freepik.com/vector-gratis/perfil-avatar-hombre-icono-redondo_24640-14044.jpg',
+        }}
+      />
 
-        <Input placeholder="Password" secureTextEntry={true}
-          leftIcon={{ type: 'font-awesome', name: 'lock' }}
-        />
+      <Input
+        placeholder='Login'
+        leftIcon={{ type: 'font-awesome', name: 'user' }}
+      />
 
-        <Button
-          title="Entrar"
-          type="outline"
-        />
+      <Input placeholder="Password" secureTextEntry={true}
+        leftIcon={{ type: 'font-awesome', name: 'lock' }}
+      />
 
-        <Card
-          image={{ uri: 'https://blogs.florida.es/floridauniversitariablog/wp-content/uploads/sites/19/2018/10/FLORIDA-UNIVERSITARIA.png' }}
-          imageStyle={{
-            width: 360,
-            height: 140,
-            resizeMode: 'cover'
-          }}>
-          <Text>Cicle Formatiu de Desenvolupament D'Aplicacions Multiplataforma</Text>
+      <Button style={{
+        
+        shadowOffset: {
+          width: 0,
+          height: 10,
+        },
+        shadowOpacity: 0.12,
+        shadowRadius: 60,
+
+      }}
+        title="Entrar"
+        type="outline"
+      />
+
+      <ScrollView>
+        <Card>
+          <Card.Title>2º DAM</Card.Title>
+          <Card.Divider />
+          <Image
+            source={{ uri: 'https://blogs.florida.es/floridauniversitariablog/wp-content/uploads/sites/19/2018/10/FLORIDA-UNIVERSITARIA.png' }}
+            style={{ width: 350, height: 150 }}
+            PlaceholderContent={<ActivityIndicator />}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Cicle Formatiu de Desenvolupament D'Aplicacions Multiplataforma
+  </Text>
         </Card>
+      </ScrollView>
+
+
     </>
   );
 };
@@ -84,8 +103,8 @@ const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
   },
-  boton: {
-
+  Sombras: {
+    shadowRadius: 10
   },
   engine: {
     position: 'absolute',
@@ -119,6 +138,13 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+  },
+  scrollView: {
+    backgroundColor: 'lightgrey',
+    marginHorizontal: 0,
+  },
+  container: {
+    flex: 1,
   },
 });
 
