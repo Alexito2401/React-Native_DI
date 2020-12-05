@@ -57,7 +57,7 @@ const App: () => React$Node = () => {
             <View style={{ paddingLeft: 20 }}>
               <Input
                 placeholder='Contraseña'
-                leftIcon={{ type: 'font-awesome', name: 'user', color: 'grey' }}
+                leftIcon={{ type: 'font-awesome', name: 'lock', color: 'grey' }}
                 secureTextEntry={true}
                 style={{ paddingBottom: 0, height: 1 }}
               />
