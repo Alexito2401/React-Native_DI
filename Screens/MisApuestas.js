@@ -14,6 +14,8 @@ import {
   View,
   Text,
   StatusBar,
+  Dimensions,
+  Alert,
 } from 'react-native';
 
 import {
@@ -23,37 +25,11 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { Header } from 'react-native-elements';
-import { Icon } from 'react-native-elements';
+import { colors, Input } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { Image } from 'react-native-elements';
-import BaseOpciones from '../Components/BaseOpciones';
-
-const cabezera = () => {
-  return (
-    <View>
-      <Header
-        statusBarProps={{ barStyle: 'light-content' }}
-        barStyle="light-content" // or directly
-        leftComponent={<Image
-          source={{ uri: 'https://i.imgur.com/83wzUWP.png' }}
-          style={{ width: 30, height: 30 }}
-        />
-        }
-        centerComponent={{ text: 'Partidos', style: { color: '#fff', fontSize: 20, marginRight: 155 } }}
-        rightComponent={<Icon
-          name='search'
-          type='fontawesome'
-          color='white'
-          size={40}
-        />}
-        containerStyle={{
-          backgroundColor: '#616161',
-          justifyContent: 'space-around',
-        }}
-      />
-    </View>
-  )
-}
+import Cabezera from '../Components/Cabezera';
+import BaseOpciones from '../Components/BaseOpciones'
 
 const partido = (uriImagenL, uriImagenV, dia, mes, año, equipoL, equipoV, hora, minuto) => {
   return (
@@ -90,51 +66,69 @@ const partido = (uriImagenL, uriImagenV, dia, mes, año, equipoL, equipoV, hora,
 
 class App extends Component {
   render() {
-  return (
-    <>
-      <StatusBar barStyle="light-content" />
+    return (
+      <>
+        <StatusBar barStyle="dark-content" />
+        <View style={styles.container}>
+          <Cabezera link='https://i.imgur.com/NFZEjtB.png' name='Mis Apuestas' link2='https://i.imgur.com/mTumZL7.png' />
+          <View style={styles.seccio1}>
 
-      {cabezera()}
+            <View style={styles.login}>
+              <Text style={[styles.login, { fontSize: 32, letterSpacing: 8, fontFamily: 'arial' }]}>Mis Apuestas</Text>
+            </View>
 
+            {partido('https://i.imgur.com/SXI9LEm.png', 'https://i.imgur.com/ylZ1xgT.png?2', 15, 10, 2020, 'Valencia', 'Real Madrid', 17, 30)}
+            {partido('https://i.imgur.com/JwTyXcw.png', 'https://i.imgur.com/tQKN823.png', 17, 10, 2020, 'Barcelona', 'Rallo Vallecano', 20, '00')}
 
-      <View style={styles.contenidor}>
-
-        <View style={styles.seccio1}>
+          </View>
+          <BaseOpciones />
         </View>
-        {partido('https://i.imgur.com/SXI9LEm.png', 'https://i.imgur.com/ylZ1xgT.png?2', 15, 10, 2020, 'Valencia', 'Real Madrid', 17, 30)}
-        {partido('https://i.imgur.com/JwTyXcw.png', 'https://i.imgur.com/tQKN823.png', 17, 10, 2020, 'Barcelona', 'Rallo Vallecano', 20, '00')}
-        {partido('https://i.imgur.com/0kjJAcO.png', 'https://i.imgur.com/qzZh9lp.png', 19, 10, 2020, 'Levante', 'Malaga', 15, '00')}
-
-      </View>
-
-      <BaseOpciones/>
-
-    </>
-  );
+      </>
+    );
+  }
 };
-}
+
 
 const styles = StyleSheet.create({
-  contenidor: {
+  container: {
     flex: 1,
-    flexDirection: 'column',
     backgroundColor: '#027DB4',
-    borderWidth: 1,
+  }, seccio1: {
+    flex: 3,
     width: '100%',
-    borderWidth: 0,
+    backgroundColor: '#027DB4',
+    borderStyle: 'solid',
   },
-  seccio1: {
-    flex: 0.05,
-    backgroundColor: '#333333',
-    borderBottomLeftRadius: 12,
-    borderBottomRightRadius: 12,
-    fontSize: 12,
-    fontWeight: '400',
-    padding: 12,
-    textAlign: 'right',
+  circle: {
+    width: 50,
+    height: 50,
+    borderRadius: 100 / 3,
+    backgroundColor: '#8400FF',
+    marginTop: 19,
+    marginLeft: 354,
+    borderWidth: 2,
+    borderColor: 'white',
+
+  },
+  seccio2: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center'
+  },
+  login: {
+    color: 'white',
+    fontWeight: 'bold',
+    paddingLeft: 30,
+    paddingTop: 10,
+  },
+  simbolo: {
+    color: 'white',
+    fontSize: 33,
+    alignSelf: 'center',
+    marginBottom: 20,
   },
   mostrarPartido: {
-    flex: 0.3,
+    flex: 0.4,
     backgroundColor: '#02A7F0',
     marginTop: 30,
     padding: 1,
@@ -183,13 +177,6 @@ const styles = StyleSheet.create({
     height: 50,
     marginLeft: 20,
   },
-  base: {
-    width: '100%',
-    height: 40,
-    backgroundColor: '#027DB4',
-    flexDirection: 'row',
-    borderWidth: 0,
-  }
 });
 
 export default App;

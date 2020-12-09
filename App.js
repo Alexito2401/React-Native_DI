@@ -35,26 +35,29 @@ const App: () => React$Node = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
-        <View style={styles.seccio1}>
-          
+        <ScrollView scrollEnabled={false}>
+          <View style={styles.seccio1}>
+
             <View style={styles.login}>
-              <Text style={[styles.login, { fontSize: 32, letterSpacing: 8, fontFamily: 'arial' }]}>REGISTRARSE</Text>
+              <Text style={[styles.login, { fontSize: 32, letterSpacing: 8, fontFamily: 'arial' }]}>RECUPERAR CONTRASEÑA</Text>
             </View>
             <View>
-              <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Email</Text>
+              <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Nueva Contraseña</Text>
             </View>
             <View style={{ paddingLeft: 20 }}>
               <Input
+                textContentType='password'
                 placeholder='Email'
                 leftIcon={{ type: 'font-awesome', name: 'user', color: 'grey' }}
               />
             </View>
 
             <View>
-              <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Contraseña</Text>
+              <Text style={{ paddingTop: 15, color: 'white', fontWeight: 'bold', paddingLeft: 30, fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }}>Confirmar Contraseña</Text>
             </View>
             <View style={{ paddingLeft: 20 }}>
               <Input
+                textContentType='password'
                 placeholder='Contraseña'
                 leftIcon={{ type: 'font-awesome', name: 'lock', color: 'grey' }}
                 secureTextEntry={true}
@@ -63,35 +66,17 @@ const App: () => React$Node = () => {
             </View>
             <View>
 
-            <View>
-              <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Confirmar Contraseña</Text>
-            </View>
-            <View style={{ paddingLeft: 20 }}>
-              <Input
-                placeholder='Contraseña'
-                leftIcon={{ type: 'font-awesome', name: 'lock', color: 'grey' }}
-                secureTextEntry={true}
-                style={{ paddingBottom: 0, height: 1 }}
-              />
-            </View>
-            <View>
-              <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Edad</Text>
-            </View>
-            <View style={{ paddingLeft: 20 }}>
-              <Input
-                placeholder='Edad'
-                leftIcon={{ type: 'font-awesome', name: 'birthday-cake', color: 'grey' }}
-              />
             </View>
 
+            <View>
               <Button
-                title='REGISTRARSE'
+                title='Confirmar'
                 titleStyle={{ color: 'white', letterSpacing: 3, fontWeight: '100' }}
                 type="outline"
                 buttonStyle={{
                   borderColor: 'white',
-                  marginLeft: '25%',
-                  marginRight: '25%',
+                  marginLeft: '35%',
+                  marginRight: '35%',
                 }}
                 containerStyle={{
                   color: 'white',
@@ -99,10 +84,20 @@ const App: () => React$Node = () => {
               />
             </View>
             <View>
-              <View style={styles.circle}><Text style={styles.simbolo}>➔</Text></View>
+            <View style={styles.circle}><Text style={styles.simbolo}>➔</Text></View>
             </View>
-        </View>
-                <View style={styles.seccio2}></View>
+          </View>
+
+
+          <View style={[styles.seccio2]}>
+
+            <Image
+              source={{ uri: 'https://i.imgur.com/1fixtul.png' }}
+              style={{ width: 250, height: 120, marginTop: 10, position: 'relative' }}
+            />
+
+          </View>
+        </ScrollView>
       </View>
     </>
   );
@@ -116,24 +111,25 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'white',
     padding: 1,
-    
   }, seccio1: {
-    flex: 7,
+    flex: 3,
+    width: '100%',
     backgroundColor: '#027DB4',
+    borderStyle: 'solid',
   },
   circle: {
     width: 50,
     height: 50,
     borderRadius: 100 / 3,
     backgroundColor: '#8400FF',
-    marginTop: 8,
+    marginTop: 19,
     marginLeft: 354,
     borderWidth: 2,
     borderColor: 'white',
 
   },
   seccio2: {
-    flex:1,
+    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center'
   },
@@ -141,7 +137,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     paddingLeft: 30,
-    paddingTop: 7,
+    paddingTop: 25,
   },
   simbolo: {
     color: 'white',

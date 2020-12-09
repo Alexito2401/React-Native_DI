@@ -15,7 +15,7 @@ import {
   Text,
   StatusBar,
   Dimensions,
-  TextInput,
+  Alert,
 } from 'react-native';
 
 import {
@@ -27,86 +27,85 @@ import {
 
 import { colors, Input } from 'react-native-elements';
 import { Button } from 'react-native-elements';
+import Cabezera from '../Components/Cabezera';
+import BaseOpciones from '../Components/BaseOpciones';
+import Tabla from '../Components/Tabla';
 
 class App extends Component {
   render() {
     return (
       <>
         <StatusBar barStyle="dark-content" />
+        <ScrollView>
         <View style={styles.container}>
+          <Cabezera link='https://i.imgur.com/NFZEjtB.png' name='Mi Perfil' link2='https://i.imgur.com/NZQxzsJ.png' />
           <View style={styles.seccio1}>
-
+          
             <View style={styles.login}>
-              <Text style={[styles.login, { fontSize: 32, letterSpacing: 8, fontFamily: 'arial' }]}>REGISTRARSE</Text>
+              <Text style={[styles.login, { fontSize: 32, letterSpacing: 8, fontFamily: 'arial' }]}>Mi Perfil</Text>
             </View>
             <View>
               <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Email</Text>
             </View>
             <View style={{ paddingLeft: 20 }}>
               <Input
-                textContentType='emailAddress'
                 placeholder='Email'
                 leftIcon={{ type: 'font-awesome', name: 'user', color: 'grey' }}
               />
             </View>
-
+            
             <View>
-              <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Contraseña</Text>
+              <Text style={{ paddingTop: 15, color: 'white', fontWeight: 'bold', paddingLeft: 30, fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }}>Contraseña</Text>
             </View>
             <View style={{ paddingLeft: 20 }}>
               <Input
-                textContentType='password'
                 placeholder='Contraseña'
                 leftIcon={{ type: 'font-awesome', name: 'lock', color: 'grey' }}
                 secureTextEntry={true}
                 style={{ paddingBottom: 0, height: 1 }}
               />
+              <Text style={{ textDecorationLine: 'underline', alignSelf: 'flex-end', color: '#fff', }}>Cambiar Contraseña</Text>
             </View>
             <View>
+              <Text style={{ paddingTop: 15, color: 'white', fontWeight: 'bold', paddingLeft: 30, fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }}>Edad</Text>
+            </View>
 
+            <View style={{ paddingLeft: 20, flexDirection: 'row' }}>
               <View>
-                <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Confirmar Contraseña</Text>
-              </View>
-              <View style={{ paddingLeft: 20 }}>
                 <Input
-                  textContentType='password'
-                  placeholder='Contraseña'
-                  leftIcon={{ type: 'font-awesome', name: 'lock', color: 'grey' }}
-                  secureTextEntry={true}
-                  style={{ paddingBottom: 0, height: 1 }}
-                />
-              </View>
-              <View>
-                <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Edad</Text>
-              </View>
-              <View style={{ paddingLeft: 20 }}>
-                <Input
+                  containerStyle={{ width: 120 }}
                   keyboardType='numeric'
                   placeholder='Edad'
                   leftIcon={{ type: 'font-awesome', name: 'birthday-cake', color: 'grey' }}
                 />
               </View>
-
-              <Button
-                title='REGISTRARSE'
-                titleStyle={{ color: 'white', letterSpacing: 3, fontWeight: '100' }}
-                type="outline"
-                buttonStyle={{
-                  borderColor: 'white',
-                  marginLeft: '25%',
-                  marginRight: '25%',
-                }}
-                containerStyle={{
-                  color: 'white',
-                }}
-              />
+              <View style={{ alignSelf: 'flex-start', marginLeft: 140 }}>
+                <Button
+                  buttonStyle={{ backgroundColor: '#169BD5' }}
+                  title="Cerrar Cuenta"
+                />
+              </View>
+              
             </View>
-            <View>
-              <View style={styles.circle}><Text style={styles.simbolo}>➔</Text></View>
+            <View style={{ flexDirection: 'row', paddingTop: 10 }}>
+              <View style={{ paddingLeft: 30 }}>
+                <Button
+                  buttonStyle={{ backgroundColor: '#169BD5' }}
+                  title="Mis Apuestas"
+                />
+              </View>
+              <View style={{ alignSelf: 'flex-end', marginLeft: 120 }}>
+                <Button
+                  buttonStyle={{ backgroundColor: '#169BD5' }}
+                  title="Ingresar Tarjeta"
+                />
+              </View>
             </View>
           </View>
-          <View style={styles.seccio2}></View>
+          <BaseOpciones/>
+          
         </View>
+        </ScrollView>
       </>
     );
   }
@@ -116,21 +115,19 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    borderWidth: 2,
-    borderColor: 'white',
-    padding: 1,
-
-  }, seccio1: {
-    flex: 7,
     backgroundColor: '#027DB4',
+  }, seccio1: {
+    width: '100%',
+    flex: 1,
+    backgroundColor: '#027DB4',
+    borderStyle: 'solid',
   },
   circle: {
     width: 50,
     height: 50,
     borderRadius: 100 / 3,
     backgroundColor: '#8400FF',
-    marginTop: 8,
+    marginTop: 19,
     marginLeft: 354,
     borderWidth: 2,
     borderColor: 'white',
@@ -145,14 +142,13 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     paddingLeft: 30,
-    paddingTop: 7,
+    paddingTop: 10,
   },
   simbolo: {
     color: 'white',
     fontSize: 33,
     alignSelf: 'center',
-    marginTop: 5,
-    transform: [{ rotate: '180deg' }]
+    marginBottom: 20,
   }
 });
 

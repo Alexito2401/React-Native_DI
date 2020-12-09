@@ -40,23 +40,25 @@ class App extends Component {
             <View style={styles.seccio1}>
 
               <View style={styles.login}>
-                <Text style={[styles.login, { fontSize: 32, letterSpacing: 8, fontFamily: 'arial' }]}>LOGIN</Text>
+                <Text style={[styles.login, { fontSize: 32, letterSpacing: 8, fontFamily: 'arial' }]}>RECUPERAR CONTRASEÑA</Text>
               </View>
               <View>
-                <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Email</Text>
+                <Text style={[styles.login, { fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }]}>Nueva Contraseña</Text>
               </View>
               <View style={{ paddingLeft: 20 }}>
                 <Input
+                  textContentType='password'
                   placeholder='Email'
                   leftIcon={{ type: 'font-awesome', name: 'user', color: 'grey' }}
                 />
               </View>
 
               <View>
-                <Text style={{ paddingTop: 15, color: 'white', fontWeight: 'bold', paddingLeft: 30, fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }}>Contraseña</Text>
+                <Text style={{ paddingTop: 15, color: 'white', fontWeight: 'bold', paddingLeft: 30, fontSize: 15, letterSpacing: 3, fontFamily: 'arial' }}>Confirmar Contraseña</Text>
               </View>
               <View style={{ paddingLeft: 20 }}>
                 <Input
+                  textContentType='password'
                   placeholder='Contraseña'
                   leftIcon={{ type: 'font-awesome', name: 'lock', color: 'grey' }}
                   secureTextEntry={true}
@@ -69,7 +71,7 @@ class App extends Component {
 
               <View>
                 <Button
-                  title='LOGIN'
+                  title='Confirmar'
                   titleStyle={{ color: 'white', letterSpacing: 3, fontWeight: '100' }}
                   type="outline"
                   buttonStyle={{
@@ -83,10 +85,7 @@ class App extends Component {
                 />
               </View>
               <View>
-                <Text style={{ alignSelf: 'center', color: 'white', fontSize: 13, letterSpacing: 2, textDecorationLine: 'underline', fontFamily: 'arial', paddingTop: 20 }}>Contraseña Olvidada</Text>
-              </View>
-              <View>
-                <View style={styles.circle}><Text style={styles.simbolo}>+</Text></View>
+                <View style={styles.circle}><Text style={styles.simbolo}>➔</Text></View>
               </View>
             </View>
 
@@ -140,13 +139,14 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     paddingLeft: 30,
-    paddingTop: 30,
+    paddingTop: 25,
   },
   simbolo: {
     color: 'white',
     fontSize: 33,
     alignSelf: 'center',
-    marginBottom: 20,
+    marginTop: 5,
+    transform: [{ rotate: '180deg' }]
   }
 });
 
