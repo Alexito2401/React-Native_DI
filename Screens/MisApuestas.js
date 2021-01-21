@@ -25,8 +25,6 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { colors, Input } from 'react-native-elements';
-import { Button } from 'react-native-elements';
 import { Image } from 'react-native-elements';
 import Cabezera from '../Components/Cabezera';
 import BaseOpciones from '../Components/BaseOpciones'
@@ -64,7 +62,7 @@ const partido = (uriImagenL, uriImagenV, dia, mes, año, equipoL, equipoV, hora,
   )
 }
 
-class App extends Component {
+class MisApuestas extends Component {
   render() {
     return (
       <>
@@ -179,4 +177,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default MisApuestas;

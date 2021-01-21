@@ -29,7 +29,7 @@ import Cabezera from '../Components/Cabezera';
 import BaseOpciones from '../Components/BaseOpciones';
 import ElegirInformes from '../Components/Elegirinformes';
 
-class App extends Component {
+class Informes extends Component {
     render() {
         return (
             <>
@@ -92,4 +92,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default App;
+export default Informes;

@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  FlatList
 } from 'react-native';
 
 import {
@@ -27,6 +28,7 @@ import { Header } from 'react-native-elements';
 import { Icon } from 'react-native-elements';
 import { Image } from 'react-native-elements';
 import BaseOpciones from '../Components/BaseOpciones';
+import { ElementLlista } from '../Components/ElementosLista';
 
 const cabezera = () => {
   return (
@@ -55,40 +57,18 @@ const cabezera = () => {
   )
 }
 
-const partido = (uriImagenL, uriImagenV, dia, mes, año, equipoL, equipoV, hora, minuto) => {
-  return (
-    <View style={styles.mostrarPartido}>
-      <View style={styles.mostrarlogo}>
-        <View style={styles.logo1}>
-          <Image
-            source={{ uri: uriImagenL }}
-            style={{ width: 40, height: 40 }}
-          />
-        </View>
-        <Text style={{ marginLeft: 25, color: 'white', fontFamily: 'BungeeInline', fontSize: 18 }}>VS</Text>
-        <View style={styles.logo2}>
-          <Image
-            source={{ uri: uriImagenV }}
-            style={{ width: 40, height: 40 }}
-          /></View>
+class Partidos extends Component {
 
-      </View>
-
-      <View style={styles.mostrarfecha}>
-        <Text style={{ color: '#fff', letterSpacing: 6, fontFamily: 'BungeeInline', fontSize: 18 }}>{dia}/{mes}/{año}</Text>
-      </View>
-      <View style={styles.nombreEquipos}>
-        <Text style={{ color: '#fff', fontSize: 12, fontFamily: 'BungeeInline', fontSize: 13, textAlign: 'center' }}>{equipoL} vs {equipoV}</Text>
-      </View>
-
-      <View style={styles.hora}>
-        <Text style={{ color: '#fff', letterSpacing: 6, fontFamily: 'BungeeInline', fontSize: 18 }}>{hora}:{minuto}</Text>
-      </View>
-    </View>
-  )
-}
-
-class App extends Component {
+  constructor(props){
+    super(props)
+    //dadesAMostrar com a variable de l'estat de la classe
+    this.state={
+      dadesAMostrar:[{linkL:'https://i.imgur.com/SXI9LEm.png', linkV: 'https://i.imgur.com/ylZ1xgT.png?2', dia: '15', mes: '10', año: '2020', equipoL: 'Valencia', equipoV: 'Real Madrid', hora: '17', minuto: '30'},
+      {linkL:'https://i.imgur.com/JwTyXcw.png', linkV: 'https://i.imgur.com/tQKN823.png', dia: '17', mes: '10', año: '2020', equipoL: 'Barcelona', equipoV: 'Rallo Vallecano', hora: '20', minuto: '00'},
+      {linkL:'https://i.imgur.com/0kjJAcO.png', linkV: 'https://i.imgur.com/qzZh9lp.png', dia: '19', mes: '10', año: '2020', equipoL: 'Levante', equipoV: 'Malaga', hora: '15', minuto: '00'},
+    ]
+    }
+  }
   render() {
   return (
     <>
@@ -101,10 +81,12 @@ class App extends Component {
 
         <View style={styles.seccio1}>
         </View>
-        {partido('https://i.imgur.com/SXI9LEm.png', 'https://i.imgur.com/ylZ1xgT.png?2', 15, 10, 2020, 'Valencia', 'Real Madrid', 17, 30)}
-        {partido('https://i.imgur.com/JwTyXcw.png', 'https://i.imgur.com/tQKN823.png', 17, 10, 2020, 'Barcelona', 'Rallo Vallecano', 20, '00')}
-        {partido('https://i.imgur.com/0kjJAcO.png', 'https://i.imgur.com/qzZh9lp.png', 19, 10, 2020, 'Levante', 'Malaga', 15, '00')}
-
+        <FlatList
+           data={this.state.dadesAMostrar} 
+           keyExtractor={(item, index)=>index.toString()}
+           style={{padding:5}}
+           renderItem={(item)=>(<ElementLlista elementAMostrar={item}/>  )}
+           />
       </View>
 
       <BaseOpciones/>
@@ -133,56 +115,6 @@ const styles = StyleSheet.create({
     padding: 12,
     textAlign: 'right',
   },
-  mostrarPartido: {
-    flex: 0.3,
-    backgroundColor: '#02A7F0',
-    marginTop: 30,
-    padding: 1,
-    textAlign: 'center',
-    flexDirection: "row",
-    flexWrap: 'wrap',
-  },
-  mostrarlogo: {
-    width: 150,
-    height: 50,
-    marginTop: 10,
-    textAlign: 'center',
-    padding: 8,
-    marginLeft: 10,
-    flexDirection: "row",
-  },
-  logo1: {
-    marginLeft: 0
-  },
-  logo2: {
-    marginLeft: 25,
-  },
-  mostrarfecha: {
-    alignItems: 'flex-end',
-    width: 200,
-    height: 50,
-    marginTop: 10,
-    padding: 1,
-    textAlign: 'center',
-    marginLeft: 10,
-    fontFamily: 'FontAwesome',
-  },
-  nombreEquipos: {
-    marginTop: 20,
-    paddingTop: 10,
-    width: 190,
-    height: 50,
-    marginLeft: 10,
-  },
-  hora: {
-    marginTop: 20,
-    alignItems: 'flex-end',
-    paddingTop: 1,
-    padding: 1,
-    width: 150,
-    height: 50,
-    marginLeft: 20,
-  },
   base: {
     width: '100%',
     height: 40,
@@ -192,4 +124,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+export default Partidos;

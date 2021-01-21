@@ -28,9 +28,7 @@ import { colors, Input } from 'react-native-elements';
 import { Button } from 'react-native-elements';
 import { Image } from 'react-native-elements';
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window')
-
-class App extends Component {
+class Contraseña extends Component {
   render() {
     return (
       <>
@@ -150,4 +148,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+export default Contraseña;

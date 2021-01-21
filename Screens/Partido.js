@@ -37,7 +37,7 @@ import BaseOpcionesBlanco from '../Components/BaseOpcionesBlanco';
 
 
 
-class App extends Component {
+class Partido extends Component {
     render() {
         return (
             <>
@@ -126,4 +126,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default App;
+export default Partido;

@@ -28,7 +28,7 @@ import {
 import { colors, Input } from 'react-native-elements';
 import { Button } from 'react-native-elements';
 
-class App extends Component {
+class Register extends Component {
   render() {
     return (
       <>
@@ -156,4 +156,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+export default Register;

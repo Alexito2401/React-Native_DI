@@ -29,14 +29,12 @@ import { colors, Input } from 'react-native-elements';
 import { Button } from 'react-native-elements';
 import Cabezera from '../Components/Cabezera';
 import BaseOpciones from '../Components/BaseOpciones';
-import Tabla from '../Components/Tabla';
 
-class App extends Component {
+class Perfil extends Component {
   render() {
     return (
       <>
         <StatusBar barStyle="dark-content" />
-        <ScrollView>
         <View style={styles.container}>
           <Cabezera link='https://i.imgur.com/NFZEjtB.png' name='Mi Perfil' link2='https://i.imgur.com/NZQxzsJ.png' />
           <View style={styles.seccio1}>
@@ -105,7 +103,6 @@ class App extends Component {
           <BaseOpciones/>
           
         </View>
-        </ScrollView>
       </>
     );
   }
@@ -152,4 +149,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+export default Perfil;

@@ -29,7 +29,7 @@ import Cabezera from '../Components/Cabezera'
 import BotonesFormulario3 from '../Components/BotonesFormulario3';
 
 
-class App extends Component {
+class Informe3 extends Component {
     render() {
         return (
             <>
@@ -86,4 +86,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default App;
+export default Informe3;

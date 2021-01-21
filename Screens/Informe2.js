@@ -27,9 +27,10 @@ import { Button } from 'react-native-elements';
 import BaseOpciones from '../Components/BaseOpciones';
 import Cabezera from '../Components/Cabezera'
 import BotonesFormulario from '../Components/BotonesFormulario';
+import BotonesFormulario_2 from '../Components/BotonesFormulario_2';
 
 
-class App extends Component {
+class Informe2 extends Component {
     render() {
         return (
             <>
@@ -43,6 +44,7 @@ class App extends Component {
                             <Text style={[styles.login, { fontSize: 32, letterSpacing: 8, fontFamily: 'arial' }]}>Informe de Mercado</Text>
                         </View>
                         <BotonesFormulario/>
+                        <BotonesFormulario_2/>
 
                         <Button
                             buttonStyle={{ marginLeft: 20, backgroundColor: '#AAAAAA', borderRadius: 20, width: '50%', alignSelf: 'center', marginTop: 30 }}
@@ -86,4 +88,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default App;
+export default Informe2;

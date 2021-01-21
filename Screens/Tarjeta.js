@@ -29,7 +29,6 @@ import { colors, Input } from 'react-native-elements';
 import { Button } from 'react-native-elements';
 import Cabezera from '../Components/Cabezera';
 import BaseOpciones from '../Components/BaseOpciones';
-import Tabla from '../Components/Tabla';
 import { Image } from 'react-native-elements';
 
 const numeroTarjeta = () => {
@@ -45,7 +44,7 @@ const numeroTarjeta = () => {
     )
 }
 
-class App extends Component {
+class Tarjeta extends Component {
     render() {
         return (
             <>
@@ -150,4 +149,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default App;
+export default Tarjeta;

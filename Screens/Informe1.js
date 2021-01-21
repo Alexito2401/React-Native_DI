@@ -33,7 +33,7 @@ import Cabezera from '../Components/Cabezera'
 import MyDatePicker from '../Components/MyDatePicker';
 
 
-class App extends Component {
+class Informe1 extends Component {
     render() {
         return (
             <>
@@ -107,4 +107,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default App;
+export default Informe1;
